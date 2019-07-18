@@ -24,3 +24,7 @@ export const ChangeUser = connect(
 )(ChangeForm)
 
 ChangeUser는 외부에서 이 함수를 부르면 ChangeForm을 store에서 사용되는 state와 dispatch행동을 props로 던져주면서 컴포넌트를 실행하게 된다.
+
+state는 단순히 스토어에서 받아오는 값들을 각각의 이름으로 키 밸류값을 맵핑시켜서 그 키값을 props의 키값으로 보내게 되고, 
+dispatch는 onUpdate부분이 키값으로 되고 실제 행동은 dispatch(updateUser(id,name,age,date))가 된다.
+updateUser는 action파일에서 모듈로 던져 받은 것을 실행하게 되고 ChangeForm은 해당 변수에 맞게 데이터를 세팅해서 onUpdate()함수를 실행하면 된다.
