@@ -1,7 +1,7 @@
 import React from 'react'
 import User from './User'
-const UserTr = ({users =[], mode,onRemove =f=>f ,onUpdate =f=>f, modeChange =f=>f, modeRead = f=>f}) =>{
-    console.log(mode)
+const UserTr = ({users =[],onRemove =f=>f , modeChange =f=>f, modeRead = f=>f}) =>{
+    
     return(
         <table>
             <tbody>  
@@ -23,8 +23,7 @@ const UserTr = ({users =[], mode,onRemove =f=>f ,onUpdate =f=>f, modeChange =f=>
                     <p>유저가 없습니다 추가해주세요</p> :
                     users.map((user,i) =>
                         <User key ={i} user = {user} onRemove ={()=>onRemove(user.id)}
-                       mode = {mode} modeChange = {()=>modeChange(user.id)} 
-                       modeRead = {()=>modeRead()}/> ) }  
+                       modeChange = {()=>modeChange(user.id)} /> ) }  
             </tbody>
         </table>
     )

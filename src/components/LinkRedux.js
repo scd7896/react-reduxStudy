@@ -7,7 +7,6 @@ import ChangeForm from './ChangeForm'
 export const UserList = connect(
     state =>({
         users : [...state.arrays],
-        mode : state.mode
     }),
     dispatch =>
     ({
@@ -17,9 +16,7 @@ export const UserList = connect(
         modeChange(id){
             dispatch(modeChange(id))
         },
-       onUpdate(id,name,age,date){
-            dispatch(updateUser(id,name,age,date))
-        }
+       
     })
 )(UserTr)
 
@@ -37,7 +34,7 @@ export const ChangeUser = connect(
     state=>({
         mode: state.mode,
         nowId : state.nowId,
-        users : [...state.arrays]
+        users : state.arrays
     }),
     dispatch => ({
         onUpdate(id,name,age,date){

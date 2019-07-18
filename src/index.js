@@ -27,23 +27,26 @@ const initial= {
             date : '951117'
         }
     ],
-    mode : 'read'
+    mode : 'read',
+    nowId : ''
 }
-const store = createStore(
+
+export const store = createStore(
     combineReducers({arrays, mode, nowId}),
     (localStorage['redux-store']) ?
-        JSON.parse(localStorage['redux-store']) :
+        {
+            arrays :JSON.parse(localStorage['redux-store']),
+            mode : 'read',
+            nowId : ''
+        } :
         initial
 )
 
 
-try{
+
     store.subscribe (()=>{
-        localStorage['redux-store'] = JSON.stringify(store.getState())
+        localStorage['redux-store'] = JSON.stringify(store.getState().arrays)
     })
-}catch(exception){
-    console.log(store.getState())
-}
 
 // store.dispatch(insertUser({
 //     id :2,
