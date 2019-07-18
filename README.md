@@ -7,4 +7,7 @@ index.js에서 초기 스테이트 값을 만들어서 간단하게 더미데이
 리덕스와 컴포넌트를 연결하는 함수들을 호출해서 불러 냈었다.  
 
 ReduxLinked.js파일은 쉽게 연결만을 담당을 하고, connect함수에는 두 가지를 받아서 인자로 전달해서 부르게 된다.
-export const (외부에서 부를 함수이름) =connect(state=>(), dispatch=>())(해당 컴포넌트)
+export const (외부에서 부를 함수이름) =connect(state=>({}), dispatch=>({}))(해당 컴포넌트)
+여기서 state는 리듀서에서 사용되는 스토어의 이름들이라고 생각 하면 되고, dispatch는 해당 함수를 사용해 action을 부른다고 생각하면된다
+
+(해당컴포넌트) 에서는 이를 props로 받게 되고 접근할 때는 this.props. 방식으로 접근이 가능하다 
